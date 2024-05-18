@@ -130,7 +130,8 @@ if ($sql ==  true) {
             <ul>
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./import.php">Import</a></li>
-                <li><a href="./export.php">Export</a></li>
+                <li><a href="./exports.php">Export</a></li>
+                <li><a href="./report.php">Report</a></li>
                 <li><a href="./Auth/logout.php">Logout</a></li>
             </ul>
         </div>

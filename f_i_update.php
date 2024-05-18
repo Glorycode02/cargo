@@ -4,12 +4,13 @@ include_once "./Auth/config.php";
 
 if(!isset($_GET['id'])){
     header("Location: ./import.php");
+    exit(); // Ensure script termination after redirection
 }
 $id = $_GET['id'];
 
-$sql = mysqli_query($conn,"SELECT * FROM import INNER JOIN  furniture ON import.furnitureid = furniture.furnitureid = '{$id}' ");
-if($sql == true){
-    $fetch = mysqli_fetch_Assoc($sql);
+$sql = mysqli_query($conn, "SELECT * FROM import INNER JOIN furniture ON import.furnitureid = furniture.furnitureid WHERE import.furnitureid = '{$id}' ");
+if($sql){
+    $fetch = mysqli_fetch_assoc($sql);
     $form = '<form action="" method="POST">
                 <div>
                     <label for="uname">Furniture Name</label>
@@ -27,21 +28,20 @@ if($sql == true){
                     <label for="pass">Quantity</label>
                     <input type="text" name="quantity" >
                 </div>
-                <button type="submit" name="submit">Import</button>
+                <button type="submit" name="submit">Update</button>
             </form>';
-
 }
 
 if(isset($_POST['submit'])){
     $date = $_POST['date'];
     $quantity = $_POST['quantity'];
 
-    $sql = mysqli_query($conn,"UPDATE import SET `date` = '{$date}',quantity = '{$quantity}' WHERE furnitureid = '{$id}' ");
-    if($sql == true){
-        echo " Record Updated! <a href='./import.php'>View Imports</a> ";
-}else{
-    echo "Not Added";
-}
+    $sql_update = mysqli_query($conn,"UPDATE import SET importdate = '{$date}', quantity = '{$quantity}' WHERE furnitureid = '{$id}' ");
+    if($sql_update){
+        echo "Record Updated! <a href='./import.php'>View Imports</a> ";
+    } else {
+        echo "Update Failed";
+    }
 }
 ?>
 
@@ -51,36 +51,56 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style/f_i_update.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-
-<header class="links">
-        <h2>WELCOME TO <br>  </h1> <h2>CARGO LTD WAREHOUSE</h3>
-        <div class = "links">
-            <ul>
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./import.php">Import</a></li>
-            <li><a href="./export.php">Export</a></li>
-            <li><a href="./Auth/logout.php">logout</a></li>
-            </ul>
-        </div>
-</header>
-
-<?php echo $form; ?>
-
-
-<footer>
-    <div class="contact-info">
-        <p>Contact Us: info@cargoltd.com | Phone: +123456789</p>
-    </div>
-    <div class="social-media">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <!-- Add more social media links as needed -->
-    </div>
-</footer>
-
+    <?php echo $form; ?>
 </body>
 </html>

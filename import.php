@@ -15,7 +15,6 @@ if ($sql == true) {
                         <td>' . $fetch['furnitureownername'] . '</td>
                         <td>' . $fetch['importdate'] . '</td>
                         <td>' . $fetch['quantity'] . '</td>
-                        <td><a href="f_i_update.php?id=' . $fetch['furnitureid'] . '" style="color: #f76c6c;">Update</a></td>
                         <td><a href="f_i_delete.php?id=' . $fetch['furnitureid'] . '" style="color: #70a1ff;">Delete</a></td>
                         <td><a href="export.php?id=' . $fetch['furnitureid'] . '" style="color: #6ab04c;">Export</a></td>
                     </tr>';
@@ -130,7 +129,7 @@ if ($sql == true) {
             <ul>
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./import.php">Import</a></li>
-                <li><a href="./export.php">Export</a></li>
+                <li><a href="./exports.php">Export</a></li>
                 <li><a href="./Auth/logout.php">Logout</a></li>
             </ul>
         </div>

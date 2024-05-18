@@ -47,38 +47,69 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE FURNITURE</title>
-    <link rel="stylesheet" href="./style/f_update.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: #70a1ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4e8cbb;
+        }
+    </style>
 </head>
 <body>
-
-
-
-<header class="links">
-        <h2>WELCOME TO <br>  </h1> <h2>CARGO LTD WAREHOUSE</h3>
-        <div class = "links">
-            <ul>
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./import.php">Import</a></li>
-            <li><a href="./export.php">Export</a></li>
-            <li><a href="./Auth/logout.php">logout</a></li>
-            </ul>
-        </div>
-</header>
-
     <?php echo $form; ?>
-
-
-    <footer>
-    <div class="contact-info">
-        <p>Contact Us: info@cargoltd.com | Phone: +123456789</p>
-    </div>
-    <div class="social-media">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <!-- Add more social media links as needed -->
-    </div>
-</footer>
-
 </body>
 </html>

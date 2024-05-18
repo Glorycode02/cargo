@@ -1,5 +1,4 @@
 <?php 
-
     include_once "./Auth/config.php";
     $form ='';
     $sql = mysqli_query($conn, " SELECT * FROM export INNER JOIN furniture ON  export.furnitureid = furniture.furnitureid " );
@@ -15,9 +14,7 @@
                             <td>'.$fetch['furnitureownername'].'</td>
                             <td>'.$fetch['exportdate'].'</td>
                             <td>'.$fetch['quantity'].'</td>
-                            <td> <a href="e_update.php?id='.$fetch['furnitureid'].'">Update</a></td>
-                            <td> <a href="e_delete.php?id='.$fetch['furnitureid'].'">Delete</a></td>
-                            <td> <a href="export.php?id='.$fetch['furnitureid'].'">Export</a></td>
+                            <td> <a href="e_delete.php?id='.$fetch['furnitureid'].'" class="delete">Delete</a></td>
                         </tr>';
             }
         }else{
@@ -31,24 +28,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Exports</title>
-    <link rel="stylesheet" href="./style/exports.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
 
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
 
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .links li a {
+            color: #ddd;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #70a1ff;
+        }
+
+        a:hover {
+            color: #4e8cbb;
+        }
+
+        .delete{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
-<header class="links">
-        <h2>WELCOME TO <br>  </h1> <h2>CARGO LTD WAREHOUSE</h3>
-        <div class = "links">
+<header>
+        <h1>Cargo Ltd Warehouse</h1>
+        <div class="links">
             <ul>
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./import.php">Import</a></li>
-            <li><a href="./export.php">Export</a></li>
-            <li><a href="./Auth/logout.php">logout</a></li>
+                <li><a href="./index.php">Home</a></li>
+                <li><a href="./import.php">Import</a></li>
+                <li><a href="./exports.php">Export</a></li>
+                <li><a href="./Auth/logout.php">Logout</a></li>
             </ul>
         </div>
-</header>
-
+    </header>
     <h1>Exports</h1>
     <table border='1'>
         <thead>
@@ -58,7 +121,7 @@
                 <th>Furniture Owner Name</th>
                 <th>Date</th>
                 <th>Quantity</th>
-                <th colspan='3'>Action</th>
+                <th colspan='2'>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -66,16 +129,6 @@
         </tbody>
     </table>
 
-    <footer>
-    <div class="contact-info">
-        <p>Contact Us: info@cargoltd.com | Phone: +123456789</p>
-    </div>
-    <div class="social-media">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <!-- Add more social media links as needed -->
-    </div>
 </footer>
 
 
