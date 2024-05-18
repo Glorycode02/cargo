@@ -1,0 +1,101 @@
+
+
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li, table, th, td {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Arial, sans-serif;
+
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h2, header h3 {
+    margin: 5px 0;
+}
+
+/* Navigation links */
+.links ul {
+    padding: 0;
+    text-align: center;
+}
+
+.links ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Add button styles */
+#add {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#add:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #ffa500;
+}
